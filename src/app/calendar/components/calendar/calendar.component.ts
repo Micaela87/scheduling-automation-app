@@ -183,7 +183,7 @@ export class CalendarComponent implements OnInit {
   }
 
   assignEventsToDates(events: any[]) {
-    this.monthDates = events.map((event: any) => {
+    this.monthDates = events?.map((event: any) => {
       const startTime = event.start.dateTime;
       const eventFormattedDate = `${startTime.getDate()}/${startTime.getMonth()}/${startTime.getFullYear()}`;
       return this.monthDates.map((date: DateMetadata[]) => {
@@ -203,7 +203,7 @@ export class CalendarComponent implements OnInit {
           return date;
         });
       });
-    })[0];
+    })[0] || this.monthDates;
 
   }
 

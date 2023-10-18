@@ -1,0 +1,15 @@
+.btn-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin: 10px 0;
+    border: 1px solid #80808085;
+    width: fit-content;
+    border-radius: 3px;
+
+    img {
+        height: 26px;
+        padding: 5px 10px;
+    }
+}
+

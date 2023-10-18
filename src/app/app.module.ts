@@ -2,7 +2,7 @@ import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { MainComponent } from './main.component';
-import { GoogleCalendarService, initWithDependencyFactory } from './shared/services/google-calendar.service';
+import { GoogleCalendarService, initWithDependencyFactory } from './calendar/services/google-calendar.service';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 import { RouterModule } from '@angular/router';

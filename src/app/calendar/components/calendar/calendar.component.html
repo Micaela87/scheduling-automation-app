@@ -1,44 +1,47 @@
-<main>
-    <div class="calendar">
-        <div>
-            <select (change)="catchMonth()" [(ngModel)]="currentMonthIndex">
-                <option [ngValue]="i" *ngFor="let month of monthNames, index as i">{{ month }}</option>
-            </select>
-            <select (change)="catchYear()" [(ngModel)]="currentYear">
-                <option [ngValue]="year" *ngFor="let year of yearOptions">{{ year }}</option>
-            </select>
-        </div>
-        <div class="week-days">
-    
-            <ng-container *ngFor="let weekDay of weekDays">
-                <div class="header" [class.sunday]="weekDay === 'dom'">{{ weekDay }}</div>
-            </ng-container>
-    
-        </div>
-        <div>
-            <ng-container *ngFor="let weekDates of monthDates">
-    
-                <div class="week-days">
-                    <ng-container *ngFor="let date of weekDates, index as i">
-                        <div class="date" [class.sunday]="i === 6 && date.month === currentMonthIndex" [class.disabled]="date.month !== currentMonthIndex" [class.selected]="date.date === currentDate && date.month === currentMonthIndex">
-    
-                            <div>{{ date.date }}</div>
-                            <div class="event" *ngIf="date?.event">
-                                <ng-container *ngFor="let event of date?.event">
-                                    <div class="separator"></div>
-                                    <div class="summary">{{ event.summary }}</div>
-                                    <div class="start"><span style="font-weight: bold;">Start: </span>{{ event.start.dateTime.getDate() + "/" + (event.start.dateTime.getMonth() + 1) + "/" + event.start.dateTime.getFullYear() + " - " + (event.start.dateTime.getHours() < 10 ? "0" + event.start.dateTime.getHours() : event.start.dateTime.getHours()) + ":" + (event.start.dateTime.getMinutes() < 10 ? "0" + event.start.dateTime.getMinutes() : event.start.dateTime.getMinutes()) }}</div>
-                                    <div class="end"><span style="font-weight: bold;">End: </span>{{ event.end.dateTime.getDate() + "/" + (event.end.dateTime.getMonth() + 1) + "/" + event.end.dateTime.getFullYear() + " - " + (event.end.dateTime.getHours() < 10 ? "0" + event.end.dateTime.getHours() : event.end.dateTime.getHours()) + ":" + (event.end.dateTime.getMinutes() < 10 ? "0" + event.end.dateTime.getMinutes() : event.end.dateTime.getMinutes()) }}</div>
-                                </ng-container>
+
+    <div class="container">
+        <app-google-button></app-google-button>
+        <div class="calendar">
+            <div>
+                <select (change)="catchMonth()" [(ngModel)]="currentMonthIndex">
+                    <option [ngValue]="i" *ngFor="let month of monthNames, index as i">{{ month }}</option>
+                </select>
+                <select (change)="catchYear()" [(ngModel)]="currentYear">
+                    <option [ngValue]="year" *ngFor="let year of yearOptions">{{ year }}</option>
+                </select>
+            </div>
+            <div class="week-days">
+        
+                <ng-container *ngFor="let weekDay of weekDays">
+                    <div class="header" [class.sunday]="weekDay === 'dom'">{{ weekDay }}</div>
+                </ng-container>
+        
+            </div>
+            <div>
+                <ng-container *ngFor="let weekDates of monthDates">
+        
+                    <div class="week-days">
+                        <ng-container *ngFor="let date of weekDates, index as i">
+                            <div class="date" [class.sunday]="i === 6 && date.month === currentMonthIndex" [class.disabled]="date.month !== currentMonthIndex" [class.selected]="date.date === currentDate && date.month === currentMonthIndex">
+        
+                                <div>{{ date.date }}</div>
+                                <div class="event" *ngIf="date?.event">
+                                    <ng-container *ngFor="let event of date?.event">
+                                        <div class="separator"></div>
+                                        <div class="summary">{{ event.summary }}</div>
+                                        <div class="start"><span style="font-weight: bold;">Start: </span>{{ event.start.dateTime.getDate() + "/" + (event.start.dateTime.getMonth() + 1) + "/" + event.start.dateTime.getFullYear() + " - " + (event.start.dateTime.getHours() < 10 ? "0" + event.start.dateTime.getHours() : event.start.dateTime.getHours()) + ":" + (event.start.dateTime.getMinutes() < 10 ? "0" + event.start.dateTime.getMinutes() : event.start.dateTime.getMinutes()) }}</div>
+                                        <div class="end"><span style="font-weight: bold;">End: </span>{{ event.end.dateTime.getDate() + "/" + (event.end.dateTime.getMonth() + 1) + "/" + event.end.dateTime.getFullYear() + " - " + (event.end.dateTime.getHours() < 10 ? "0" + event.end.dateTime.getHours() : event.end.dateTime.getHours()) + ":" + (event.end.dateTime.getMinutes() < 10 ? "0" + event.end.dateTime.getMinutes() : event.end.dateTime.getMinutes()) }}</div>
+                                    </ng-container>
+                                </div>
+        
                             </div>
-    
-                        </div>
-                    </ng-container>
-                </div>
-                
-    
-            </ng-container>
+                        </ng-container>
+                    </div>
+                    
+        
+                </ng-container>
+            </div>
         </div>
     </div>
-</main>
+
 

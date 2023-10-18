@@ -5,7 +5,7 @@ declare var google: any;
 
 export function initWithDependencyFactory(googleCalendarService: GoogleCalendarService) {
   return () => {
-    return import('../../../environments/environment')
+    return import('src/environments/environment')
       .then((vars) => {
         const environment = vars.environment;
         Object.assign(googleCalendarService, environment);
@@ -27,7 +27,7 @@ export function initWithDependencyFactory(googleCalendarService: GoogleCalendarS
 }
 
 @Injectable({
-  providedIn: 'platform'
+  providedIn: 'root'
 })
 export class GoogleCalendarService {
 
