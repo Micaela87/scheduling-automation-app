@@ -1,0 +1,41 @@
+.flex-container {
+    display: flex;
+    align-items: flex-start;
+}
+
+.diary-header {
+    display: flex;
+    align-items: center;
+    width: calc(100% - 50px);
+    justify-content: space-around;
+    text-transform: uppercase;
+    margin-left: 35px;
+
+    div {
+        width: calc(100% / 7);
+        text-align: center;
+        border: 1px solid grey;
+        padding: 5px 0;
+        font-size: 12px;
+    }
+
+    .dom {
+        color: red;
+    }
+}
+
+.hour {
+    padding: 5px;
+    font-size: 10px;
+}
+
+.slots {
+    display: flex;
+    align-items: stretch;
+    width: calc(100% - 50px);
+    height: 528px;
+
+    .slot {
+        width: calc(100% / 7);
+    }
+}

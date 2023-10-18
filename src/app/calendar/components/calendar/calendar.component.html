@@ -1,7 +1,7 @@
 
     <div class="container">
         <app-google-button></app-google-button>
-        <div class="calendar">
+        <!-- <div class="calendar">
             <div>
                 <select (change)="catchMonth()" [(ngModel)]="currentMonthIndex">
                     <option [ngValue]="i" *ngFor="let month of monthNames, index as i">{{ month }}</option>
@@ -41,7 +41,8 @@
         
                 </ng-container>
             </div>
-        </div>
+        </div> -->
+        <app-diary></app-diary>
     </div>
 
 
