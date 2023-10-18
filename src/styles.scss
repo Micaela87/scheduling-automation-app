@@ -11,6 +11,24 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-main {
-    height: calc(100vh - 120px);
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+  
+/* Track */
+::-webkit-scrollbar-track {
+    border: 1px solid rgba(128, 128, 128, 0.5215686275);
+    border-radius: 10px;
+}
+   
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(128, 128, 128, 0.5215686275); 
+    border-radius: 10px;
+}
+  
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #a7a4a4; 
 }
