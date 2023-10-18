@@ -1,17 +1,19 @@
 
 <div>
     <div class="diary-header">
-        <div *ngFor="let weekDay of weekDays, index as i" [class.dom]="i === 6">{{ weekDay }}</div>
+        <div *ngFor="let weekDay of weekDays, index as i" [class.dom]="i === 6" [class.border]="i === 6">{{ weekDay }}</div>
     </div>
     <div class="diary-header">
-        <div *ngFor="let date of dates, index as i" [class.dom]="i === 6">{{ date }}</div>
+        <div *ngFor="let date of dates, index as i" [class.dom]="i === 6" [class.border]="i === 6">{{ date.date }}</div>
     </div>
     <div class="flex-container">
         <div>
             <div *ngFor="let hour of hours" class="hour">{{ (hour < 10 ? "0" + hour : hour) + ":00" }}</div>
         </div>
         <div class="slots">
-            <div *ngFor="let date of dates" style="border: 1px solid #000" class="slot"></div>
+            <div *ngFor="let date of dates, index as i" class="slot" [class.border]="i === 6">
+                <div *ngFor="let hour of hours, index as i" class="event-hour" [class.no-border]="i === 23"></div>
+            </div>
         </div>
     </div>
 </div>

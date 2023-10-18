@@ -12,11 +12,17 @@
     margin-left: 35px;
 
     div {
-        width: calc(100% / 7);
+        width: 14.2857142857%;
         text-align: center;
-        border: 1px solid grey;
+        border: 1px solid #bdbdbd;
         padding: 5px 0;
         font-size: 12px;
+        border-bottom: none;
+        border-right: none;
+    }
+
+    .border {
+        border-right: 1px solid #bdbdbd;
     }
 
     .dom {
@@ -37,5 +43,24 @@
 
     .slot {
         width: calc(100% / 7);
+        border: 1px solid #bdbdbd;
+        border-right: none;
+        height: 100%;
+    }
+
+    .border {
+        border-right: 1px solid #bdbdbd;
+    }
+
+    .event-hour {
+        height: 4.1666666667%;
+        padding: 5px;
+        border-bottom: 1px solid #bdbdbd59;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .no-border {
+        border-bottom: none;
     }
 }
