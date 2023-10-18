@@ -16,12 +16,7 @@ export class CalendarComponent implements OnInit {
 
   private _events!: any[];
 
-  @Input() set events(events: Array<any>) {
-    
-    if (events.length) {
-      this._events = events;
-    }
-  }
+  events!: Array<any>;
 
   calendarMatrixRows: number = 42; 
   weekDays: string[] = ['lun', 'mar', 'mer', 'gio', 'ven', 'sab', 'dom'];

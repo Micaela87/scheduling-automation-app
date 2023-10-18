@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { map } from 'rxjs';
 import { GoogleCalendarService } from 'src/app/calendar/services/google-calendar.service';
 
@@ -9,8 +9,7 @@ import { GoogleCalendarService } from 'src/app/calendar/services/google-calendar
 })
 export class GoogleButtonComponent implements OnInit {
 
-  events!: Array<any>;
-
+  @Output() events: EventEmitter<Array<any>> = new EventEmitter<Array<any>>();
 
   constructor(private googleCalendarService: GoogleCalendarService) { }
 
@@ -29,7 +28,7 @@ export class GoogleButtonComponent implements OnInit {
           });
         })
       )
-      .subscribe((events: any) => this.events = events);
+      .subscribe((events: any) => this.events.emit(events));
   }
 
 }

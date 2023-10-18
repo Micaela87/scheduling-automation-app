@@ -1,6 +1,6 @@
 
     <div class="container">
-        <app-google-button></app-google-button>
+        <app-google-button (events)="events = $event"></app-google-button>
         <!-- <div class="calendar">
             <div>
                 <select (change)="catchMonth()" [(ngModel)]="currentMonthIndex">
@@ -42,7 +42,7 @@
                 </ng-container>
             </div>
         </div> -->
-        <app-diary></app-diary>
+        <app-diary [events]="events"></app-diary>
     </div>
 
 
