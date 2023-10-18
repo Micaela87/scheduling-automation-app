@@ -34,6 +34,9 @@ export class GoogleCalendarService {
   private events = new BehaviorSubject([]);
   currentEvents = this.events.asObservable();
 
+  private isLoggedIn = new BehaviorSubject(false);
+  currentStatus = this.isLoggedIn.asObservable();
+
   apiKey!: string;
   discoveryDoc!: string;
   clientID!: string;
@@ -45,6 +48,10 @@ export class GoogleCalendarService {
 
   changeEvents(events: any) {
     this.events.next(events);
+  }
+
+  changeStatus(status: boolean) {
+    this.isLoggedIn.next(status);
   }
 
   gisLoaded() {
@@ -89,6 +96,7 @@ export class GoogleCalendarService {
     }
 
     this.changeEvents(response.result.items);
+    this.changeStatus(true);
   }
 
 }
