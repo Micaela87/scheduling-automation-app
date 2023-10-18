@@ -1,3 +1,21 @@
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .arrow-container {
+        width: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        img {
+            width: 20px;
+        }
+    }
+}
+
 .flex-container {
     display: flex;
     align-items: flex-start;
@@ -6,10 +24,8 @@
 .diary-header {
     display: flex;
     align-items: center;
-    width: calc(100% - 50px);
     justify-content: space-around;
     text-transform: uppercase;
-    margin-left: 35px;
 
     div {
         width: 14.2857142857%;
@@ -38,7 +54,7 @@
 .slots {
     display: flex;
     align-items: stretch;
-    width: calc(100% - 50px);
+    width: calc(100% - 70px);
     height: 528px;
 
     .slot {

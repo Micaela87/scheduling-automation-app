@@ -7,9 +7,12 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class DiaryComponent implements OnInit {
 
+  private _events!: Array<any>;
+
   @Input() set events(events: any[]) {
     console.log(events);
     if (events?.length) {
+      this._events = events;
       this.associateEventsToWeekDays(events);
     }
   }
