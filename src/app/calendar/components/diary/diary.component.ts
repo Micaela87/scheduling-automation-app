@@ -11,10 +11,23 @@ export class DiaryComponent implements OnInit {
   private _events!: Array<any>;
 
   @Input() set events(events: any[]) {
-    console.log(events);
     if (events?.length) {
       this._events = events;
       this.associateEventsToWeekDays(events);
+    }
+  }
+
+  @Input() set selectedMonth(month: string) {
+    if (month) {
+      this.currentMonth = month;
+      this.generateNewDates();
+    }
+  };
+
+  @Input() set selectedYear(year: number) {
+    if (year) {
+      this.year = year;
+      this.generateNewDates();
     }
   }
 
@@ -48,6 +61,8 @@ export class DiaryComponent implements OnInit {
   }
 
   associateEventsToWeekDays(events: any[]) {
+
+    if (!events?.length) return;
     this.dates = this.dates.map((date: { date: number, event?: any }) => {
       const formattedDate = `${date.date}/${this.month}/${this.year}`;
 
@@ -77,6 +92,16 @@ export class DiaryComponent implements OnInit {
   goForth() {
     const day = new Date('2000-01-01T23:59:59').getTime() - new Date('2000-01-01T00:00:00').getTime();
     this.today = new Date(this.today.getTime() + (day * 7));
+    this.dates = [];
+    this.calculateWeekDates(this.today);
+    this.associateEventsToWeekDays(this._events);
+  }
+
+  generateNewDates() {
+    const index = this.monthNames.indexOf(this.currentMonth) + 1;
+    const day = this.today.getDay() < 10 ? '0' + this.today.getDay() : this.today.getDay();
+    const date = `${this.year}-${index < 10 ? '0' + index : index}-${day}T00:00:00`;
+    this.today = new Date(date);
     this.dates = [];
     this.calculateWeekDates(this.today);
     this.associateEventsToWeekDays(this._events);

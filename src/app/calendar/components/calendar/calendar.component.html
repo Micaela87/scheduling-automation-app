@@ -1,10 +1,10 @@
 
 <div class="container">
-    <app-diary></app-diary>
+    <app-diary [selectedMonth]="selectedMonth"></app-diary>
 </div>
 <div class="wrapper" *ngIf="modalService.modal === 'month'" (click)="modalService.displayModal('none')">
     <div class="modal">
-        <app-months-modal></app-months-modal>
+        <app-months-modal (selectedMonth)="selectedMonth = $event"></app-months-modal>
     </div>
 </div>
 <div class="wrapper" *ngIf="modalService.modal === 'year'" (click)="modalService.displayModal('none')">

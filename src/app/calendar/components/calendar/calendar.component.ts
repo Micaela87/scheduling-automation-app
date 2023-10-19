@@ -15,6 +15,8 @@ type DateMetadata = {
 })
 export class CalendarComponent implements OnInit {
 
+  selectedMonth!: string;
+
   constructor(public modalService: ShowModalService) { }
 
   ngOnInit(): void {

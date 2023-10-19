@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-months-modal',
@@ -6,6 +6,8 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./months-modal.component.scss']
 })
 export class MonthsModalComponent implements OnInit {
+
+  @Output() selectedMonth: EventEmitter<string> = new EventEmitter<string>();
 
   month!: number;
   currentMonth!: string;
