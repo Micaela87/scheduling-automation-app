@@ -10,8 +10,6 @@ export class ShowModalService {
   constructor() { }
 
   displayModal(modal: string) {
-    console.log(modal);
     this.modal = modal;
-    console.log(this.modal);
   }
 }

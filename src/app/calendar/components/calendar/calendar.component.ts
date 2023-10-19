@@ -16,6 +16,7 @@ type DateMetadata = {
 export class CalendarComponent implements OnInit {
 
   selectedMonth!: string;
+  selectedYear!: number;
 
   constructor(public modalService: ShowModalService) { }
 

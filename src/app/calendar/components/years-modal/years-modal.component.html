@@ -1,1 +1,3 @@
-<p>years-modal works!</p>
+<div class="modal">
+    <div *ngFor="let year of years" class="year" (click)="selectedYear.emit(year)">{{ year }}</div>
+</div>
