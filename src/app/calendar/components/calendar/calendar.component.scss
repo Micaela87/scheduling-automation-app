@@ -2,84 +2,22 @@
     width: 95%;
     margin: 10px auto;
     max-height: 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
-.calendar {
+.wrapper {
+    background-color: #0006;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100vh;
+    z-index: 1;
 }
 
-.week-days {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    font-family: Verdana;
-    text-transform: capitalize;
-
-    .sunday {
-        color: red;
-    }
-
-    .selected, .sunday.selected {
-        background-color: blue;
-        color: white;
-    }
-    
-    .disabled {
-        color: grey;
-        border-color: grey;
-    }
-}
-
-.header {
-    width: 30px;
-    height: 30px;
-}
-
-.date {
-    width: 200px;
-    height: 100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid black;
-    margin: 1px;
-    flex-direction: column;
-    padding: 5px;
-
-    .event {
-        font-size: 10px;
-        display: flex;
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-
-        .separator {
-            width: 90%;
-            height: 1px;
-            background-color: #80808038;
-            margin: 1px auto;
-        }
-
-        .summary, .start, .end {
-            width: 90%;
-            text-align: center;
-            margin: 1px auto;
-            border-radius: 5px;
-            padding: 1px 0;
-        }
-
-        .summary {
-            background: #f0f8ff;
-        }
-
-        .start {
-            background: rgb(144 237 160 / 42%);
-        }
-
-        .end {
-            background: #ed90906b;
-        }
-    }
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

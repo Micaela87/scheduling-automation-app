@@ -1,6 +1,13 @@
-
+<div class="container">
+    <app-google-button (events)="events = $event"></app-google-button>
+    <div class="container">
+        <div class="month-year" (click)="modalService.displayModal('month')">{{ currentMonth }}</div>
+        <div class="month-year" (click)="modalService.displayModal('year')">{{ year }}</div>
+    </div>
+    <div style="width: 36px"></div>
+</div>
 <div class="header-container">
-    <div class="arrow-container">
+    <div class="arrow-container" (click)="goBack()">
         <img src="../../../../assets/icons/left-arrow.png" alt="back">
     </div>
     <div style="flex-grow: 1;">
@@ -11,7 +18,7 @@
             <div *ngFor="let date of dates, index as i" [class.dom]="i === 6" [class.border]="i === 6">{{ date.date }}</div>
         </div>
     </div>
-    <div class="arrow-container">
+    <div class="arrow-container" (click)="goForth()">
         <img src="../../../../assets/icons/right-arrow.png" alt="forth">
     </div>
 </div>

@@ -1,3 +1,18 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .month-year {
+        margin: 0 10px;
+        background-color: #000000db;
+        color: #fff;
+        padding: 5px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+}
+
 .header-container {
     display: flex;
     align-items: center;

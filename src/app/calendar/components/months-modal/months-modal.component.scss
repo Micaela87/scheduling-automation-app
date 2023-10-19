@@ -1,0 +1,20 @@
+.modal {
+    display: flex;
+    width: 500px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px;
+    border: 1px solid #bdbdbd;
+    border-radius: 5px;
+    background: #fffffff7;
+
+    .month {
+        margin: 10px;
+        background-color: rgba(0, 0, 0, 0.8588235294);
+        color: #fff;
+        padding: 5px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+}

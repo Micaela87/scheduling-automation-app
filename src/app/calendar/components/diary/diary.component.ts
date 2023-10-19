@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ShowModalService } from '../../services/show-modal.service';
 
 @Component({
   selector: 'app-diary',
@@ -18,17 +19,20 @@ export class DiaryComponent implements OnInit {
   }
 
   weekDays: string[] = ['lun', 'mar', 'mer', 'gio', 'ven', 'sab', 'dom'];
+  monthNames: string[] = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
   hours: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23];
   dates: { date: number, event?: any }[] = [];
   month!: number;
   year!: number;
+  currentMonth!: string;
 
-  constructor() { }
+  constructor(public modalService: ShowModalService) { }
 
   ngOnInit(): void {
     const today = new Date();
     this.month = today.getMonth();
     this.year = today.getFullYear();
+    this.currentMonth = this.monthNames[this.month];
     this.calculateWeekDates(today);
   }
 
@@ -59,8 +63,18 @@ export class DiaryComponent implements OnInit {
         return date;
       })[0];  
     }).flat();
-
-    console.log(this.dates);
   }
+
+  goBack() {
+
+  }
+
+  goForth() {
+
+  }
+
+  // displayModal(modal: string) {
+  //   this.showModalService.displayModal(modal);
+  // }
 
 }
