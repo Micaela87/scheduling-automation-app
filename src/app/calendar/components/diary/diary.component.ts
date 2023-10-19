@@ -25,15 +25,16 @@ export class DiaryComponent implements OnInit {
   month!: number;
   year!: number;
   currentMonth!: string;
+  today!: Date;
 
   constructor(public modalService: ShowModalService) { }
 
   ngOnInit(): void {
-    const today = new Date();
-    this.month = today.getMonth();
-    this.year = today.getFullYear();
+    this.today = new Date();
+    this.month = this.today.getMonth();
+    this.year = this.today.getFullYear();
     this.currentMonth = this.monthNames[this.month];
-    this.calculateWeekDates(today);
+    this.calculateWeekDates(this.today);
   }
 
   calculateWeekDates(today: Date) {
@@ -66,15 +67,19 @@ export class DiaryComponent implements OnInit {
   }
 
   goBack() {
-
+    const day = new Date('2000-01-01T23:59:59').getTime() - new Date('2000-01-01T00:00:00').getTime();
+    this.today = new Date(this.today.getTime() - (day * 7));
+    this.dates = [];
+    this.calculateWeekDates(this.today);
+    this.associateEventsToWeekDays(this._events);
   }
 
   goForth() {
-
+    const day = new Date('2000-01-01T23:59:59').getTime() - new Date('2000-01-01T00:00:00').getTime();
+    this.today = new Date(this.today.getTime() + (day * 7));
+    this.dates = [];
+    this.calculateWeekDates(this.today);
+    this.associateEventsToWeekDays(this._events);
   }
-
-  // displayModal(modal: string) {
-  //   this.showModalService.displayModal(modal);
-  // }
 
 }
