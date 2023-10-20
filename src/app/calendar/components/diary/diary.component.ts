@@ -51,11 +51,18 @@ export class DiaryComponent implements OnInit {
   }
 
   calculateWeekDates(today: Date) {
+    const day = new Date('2000-01-01T23:59:59').getTime() - new Date('2000-01-01T00:00:00').getTime();
     const weekDay = today.getDay() === 0 ? 7 : today.getDay();
-    const startingPoint = today.getDate() - weekDay + 1;
+    const date = (today.getTime() - ((weekDay - 1) * day));
+    let startingPoint = new Date(date).getDate();
+    const endPoint = this.checkMonth();
 
     for (let i = 0; i < 7; i++) {
-      this.dates.push({ date: startingPoint + i });
+      if (startingPoint > endPoint) {
+        startingPoint = 1;
+      }
+      this.dates.push({ date: startingPoint });
+      startingPoint++;
     }
 
   }
@@ -85,6 +92,8 @@ export class DiaryComponent implements OnInit {
     const day = new Date('2000-01-01T23:59:59').getTime() - new Date('2000-01-01T00:00:00').getTime();
     this.today = new Date(this.today.getTime() - (day * 7));
     this.dates = [];
+    this.currentMonth = this.monthNames[this.today.getMonth()];
+    this.year = this.today.getFullYear();
     this.calculateWeekDates(this.today);
     this.associateEventsToWeekDays(this._events);
   }
@@ -94,17 +103,29 @@ export class DiaryComponent implements OnInit {
     this.today = new Date(this.today.getTime() + (day * 7));
     this.dates = [];
     this.calculateWeekDates(this.today);
+    this.currentMonth = this.monthNames[this.today.getMonth()];
+    this.year = this.today.getFullYear();
     this.associateEventsToWeekDays(this._events);
   }
 
   generateNewDates() {
+    console.log(this.today);
     const index = this.monthNames.indexOf(this.currentMonth) + 1;
-    const day = this.today.getDay() < 10 ? '0' + this.today.getDay() : this.today.getDay();
+    const day = this.today.getDate() < 10 ? '0' + this.today.getDate() : this.today.getDate();
     const date = `${this.year}-${index < 10 ? '0' + index : index}-${day}T00:00:00`;
     this.today = new Date(date);
     this.dates = [];
     this.calculateWeekDates(this.today);
     this.associateEventsToWeekDays(this._events);
+  }
+
+  checkMonth() {
+    const longMonths = ['Gennaio', 'Marzo', 'Maggio', 'Luglio', 'Agosto', 'Ottobre', 'Dicembre'];
+    const shortMonths = ['Novembre', 'Aprile', 'Giugno', 'Settembre'];
+
+    if (longMonths.includes(this.currentMonth)) return 31;
+    if (shortMonths.includes(this.currentMonth)) return 30;
+    return (this.year % 400 === 0 || (this.year % 4 === 0 && this.year % 100 !== 0)) ? 29 : 28;
   }
 
 }
