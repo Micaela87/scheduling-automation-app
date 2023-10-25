@@ -9,18 +9,22 @@ import { RouterModule } from '@angular/router';
 import { routes } from './routes';
 import { CalendarModule } from './calendar/calendar.module';
 import { HomeComponent } from './home/components/home/home.component';
+import { SettingsComponent } from './settings/components/settings/settings.component';
+import { SettingsModule } from './settings/settings.module';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
-    MainComponent,
-    HomeComponent
+    MainComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     SharedModule,
     RouterModule.forRoot(routes),
-    CalendarModule
+    CalendarModule,
+    SettingsModule,
+    HomeModule
   ],
   providers: [
     {

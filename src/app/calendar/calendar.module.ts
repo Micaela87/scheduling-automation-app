@@ -8,6 +8,7 @@ import { DiaryComponent } from './components/diary/diary.component';
 import { YearsModalComponent } from './components/years-modal/years-modal.component';
 import { MonthsModalComponent } from './components/months-modal/months-modal.component';
 import { ShowModalService } from './services/show-modal.service';
+import { CalendarRoutingModule } from './routing.module';
 
 
 
@@ -15,7 +16,8 @@ import { ShowModalService } from './services/show-modal.service';
   declarations: [CalendarComponent, GoogleButtonComponent, DiaryComponent, YearsModalComponent, MonthsModalComponent],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    CalendarRoutingModule
   ],
   providers: [GoogleCalendarService, ShowModalService],
   exports: [CalendarComponent]

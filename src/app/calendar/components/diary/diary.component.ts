@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Input, OnInit, Output, QueryList, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { ShowModalService } from '../../services/show-modal.service';
 
 @Component({
@@ -10,9 +10,9 @@ export class DiaryComponent implements OnInit, AfterViewInit {
 
   @ViewChildren('slot') slot!: QueryList<ElementRef>;
 
-  private _events!: Array<any>;
+  private _events!: Array<typeof this.events>;
 
-  @Input() set events(events: any[]) {
+  @Input() set events(events: Array<any>) {
     if (events?.length) {
       this._events = events;
       this.associateEventsToWeekDays(events);
@@ -57,7 +57,6 @@ export class DiaryComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.slotHeight = this.slot.first.nativeElement.getBoundingClientRect().height;
-    // getBoundingClientRect().height
   }
 
   get events() {
@@ -83,7 +82,7 @@ export class DiaryComponent implements OnInit, AfterViewInit {
 
   }
 
-  associateEventsToWeekDays(events: any[]) {
+  associateEventsToWeekDays(events: Array<typeof this.events>) {
 
     if (!events?.length) return;
     this.dates = this.dates.map((date: { date: number, month: number, event?: any }) => {
