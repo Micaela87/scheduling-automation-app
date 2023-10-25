@@ -143,4 +143,8 @@ export class DiaryComponent implements OnInit, AfterViewInit {
     return (this.year % 400 === 0 || (this.year % 4 === 0 && this.year % 100 !== 0)) ? 29 : 28;
   }
 
+  toNumber(string: string) {
+    return Number(string);
+  }
+
 }

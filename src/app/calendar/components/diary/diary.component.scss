@@ -95,4 +95,14 @@
     .no-border {
         border-bottom: none;
     }
+
+    .event {
+        position: absolute;
+        font-size: 8px;
+        background-color: #d5e9d3;
+        width: 90%;
+        left: 5%;
+        margin: 0 auto;
+        text-align: center;
+    }
 }
