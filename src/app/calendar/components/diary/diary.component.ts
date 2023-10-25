@@ -147,4 +147,8 @@ export class DiaryComponent implements OnInit, AfterViewInit {
     return Number(string);
   }
 
+  rounded(number: number) {
+    return Math.round(number);
+  }
+
 }
