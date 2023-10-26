@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GoogleCalendarService } from './calendar/services/google-calendar.service';
+import { GoogleCalendarService } from './shared/services/google-calendar.service';
 import { map } from 'rxjs';
 
 @Component({

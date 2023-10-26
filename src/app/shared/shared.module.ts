@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { GoogleCalendarService } from '../calendar/services/google-calendar.service';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { routes } from '../routes';
+import { GoogleCalendarService } from './services/google-calendar.service';
 
 
 

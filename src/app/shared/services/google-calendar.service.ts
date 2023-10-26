@@ -21,13 +21,14 @@ export function initWithDependencyFactory(googleCalendarService: GoogleCalendarS
             console.log(err);
           }
         });
+        console.log('im here');
         googleCalendarService.gisLoaded();
       });
   };
 }
 
 @Injectable({
-  providedIn: 'platform'
+  providedIn: 'root'
 })
 export class GoogleCalendarService {
 
@@ -63,6 +64,7 @@ export class GoogleCalendarService {
   }
 
   handleAuthClick() {
+
     this.tokenClient.callback = async (resp: any) => {
       if (resp.error !== undefined) {
         throw (resp);

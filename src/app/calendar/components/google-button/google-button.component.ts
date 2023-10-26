@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { map } from 'rxjs';
-import { GoogleCalendarService } from 'src/app/calendar/services/google-calendar.service';
+import { GoogleCalendarService } from 'src/app/shared/services/google-calendar.service';
 
 @Component({
   selector: 'app-google-button',
