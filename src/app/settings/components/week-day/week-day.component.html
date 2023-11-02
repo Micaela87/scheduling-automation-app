@@ -1,0 +1,13 @@
+<div class="container">
+    <div>
+        {{ day }}
+    </div>
+    <div class="flex-container" *ngFor="let hours of time">
+        <div>{{ hours.time }}</div>
+        <div class="toggle" [style.background-color]="hours.disabled ? '#bdbdbd' : '#1a73e8cf'"><div class="circle" (click)="toggleAvailability(hours.time)"  [style]="hours.circleStyle"></div></div>
+    </div>
+    <!-- <div class="flex-container">
+        <div>14:00 - 18:00</div>
+        <div class="toggle" [style.background-color]="afternoon.disabled ? '#bdbdbd' : '#1a73e8cf'"><div class="circle" (click)="toggleAvailability('14:00 - 18:00')"  [style]="circleStyle"></div></div>
+    </div> -->
+</div>
