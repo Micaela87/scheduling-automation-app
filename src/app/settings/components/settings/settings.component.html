@@ -1,1 +1,10 @@
-<p>settings works!</p>
+<div class="container">
+    <h1>Configura qui la tua disponibilità in agenda</h1>
+    <div class="availability">
+        <div style="width: calc(100% / 5); margin: 10px" *ngFor="let day of weekDays">
+            <app-week-day [day]="day"></app-week-day>
+        </div>
+        <div style="width: calc(100% / 5); margin: 10px"></div>
+    </div>
+</div>
+
