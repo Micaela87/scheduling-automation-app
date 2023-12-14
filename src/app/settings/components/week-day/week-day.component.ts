@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { WeekSlotsService } from 'src/app/shared/services/week-slots.service';
+import { Slot, WeekDaySlot } from 'src/app/types/types';
 
 @Component({
   selector: 'app-week-day',
@@ -7,35 +9,26 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class WeekDayComponent implements OnInit {
 
-  @Input() day!: string;
+  @Input() slot!: WeekDaySlot;
+  @Input() slots!: Array<Slot>;
 
-  circleStyle: string = 'left: 2px';
-  morning: { disabled: boolean, circleStyle: string } = { disabled: false, circleStyle: this.circleStyle };
-  afternoon: { disabled: boolean, circleStyle: string } = { disabled: false, circleStyle: this.circleStyle };
-  time: Array<{ time: string, disabled: boolean, circleStyle: string }> = [
-    { 
-      time: '9:00 - 13:00', 
-      disabled: false, 
-      circleStyle: this.circleStyle
-    }, 
-    {
-      time: '14:00 - 18:00',
-      disabled: false, 
-      circleStyle: this.circleStyle
-    }
-  ];
+  editSlot: boolean = false;
+  hours: Array<undefined> = new Array(24);
+  defaultStart: number = 9;
+  defaultEnd: number = 13;
 
-  constructor() { }
+  constructor(private weekSlotsService: WeekSlotsService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  toggleAvailability(time: string) {
+  async toggleAvailability(slot: Slot) {
 
-    const hours = this.time.find((hour: any) => hour.time === time);
-    hours?.circleStyle === 'left: 2px' ? hours!.circleStyle = 'right: 2px' : hours!.circleStyle = 'left: 2px';
-    hours!.disabled = !hours?.disabled;
+    const index = this.slots.indexOf(slot);
+    this.slots[index].disabled = !this.slots[index].disabled;
+    this.slot.slots = this.slots;
 
+    await this.weekSlotsService.saveSlot(this.slot.id, this.slot);
+    
   }
 
 }

@@ -1,13 +1,29 @@
 <div class="container">
-    <div>
-        {{ day }}
+    <div class="flex-container" style="position: relative">
+        <div>
+            {{ slot.weekday }}
+        </div>
+        <div class="img-container" (click)="editSlot = !editSlot">
+            <img src="../../../../assets/icons/edit.png" alt="edit" *ngIf="!editSlot">
+            <img src="../../../../assets/icons/checked.png" alt="save" *ngIf="editSlot">
+        </div>
     </div>
-    <div class="flex-container" *ngFor="let hours of time">
-        <div>{{ hours.time }}</div>
-        <div class="toggle" [style.background-color]="hours.disabled ? '#bdbdbd' : '#1a73e8cf'"><div class="circle" (click)="toggleAvailability(hours.time)"  [style]="hours.circleStyle"></div></div>
-    </div>
-    <!-- <div class="flex-container">
-        <div>14:00 - 18:00</div>
-        <div class="toggle" [style.background-color]="afternoon.disabled ? '#bdbdbd' : '#1a73e8cf'"><div class="circle" (click)="toggleAvailability('14:00 - 18:00')"  [style]="circleStyle"></div></div>
-    </div> -->
+    <ng-container *ngIf="!editSlot; else editMode">
+        <div class="flex-container" *ngFor="let slot of slots">
+            <div>{{ slot.start }} - {{ slot.end }}</div>
+            <div class="toggle" [style.background-color]="slot.disabled ? '#bdbdbd' : '#1a73e8cf'"><div class="circle" [style]="slot.disabled ? 'left: 2px' : 'right: 2px'" (click)="toggleAvailability(slot)"></div></div>
+        </div>
+    </ng-container>
+    <ng-template #editMode>
+        <div class="flex-container">
+            <label for="">Start</label>
+            <select [(ngModel)]="defaultStart">
+                <option *ngFor="let hour of hours, index as i" [value]="i">{{ i }}:00</option>
+            </select>
+            <label for="">End</label>
+            <select [(ngModel)]="defaultEnd">
+                <option *ngFor="let hour of hours, index as i" [value]="i">{{ i }}:00</option>
+            </select>
+        </div>
+    </ng-template>
 </div>
