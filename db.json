@@ -1,0 +1,116 @@
+{
+  "slots": [
+    {
+      "id": 1,
+      "weekday": "lun",
+      "slots": [
+        {
+          "start": "9:00",
+          "end": "13:00",
+          "disabled": false
+        },
+        {
+          "start": "14:00",
+          "end": "18:00",
+          "disabled": true
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "weekday": "mar",
+      "slots": [
+        {
+          "start": "9:00",
+          "end": "13:00",
+          "disabled": true
+        },
+        {
+          "start": "14:00",
+          "end": "18:00",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "weekday": "mer",
+      "slots": [
+        {
+          "start": "9:00",
+          "end": "13:00",
+          "disabled": false
+        },
+        {
+          "start": "14:00",
+          "end": "18:00",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "weekday": "gio",
+      "slots": [
+        {
+          "start": "9:00",
+          "end": "13:00",
+          "disabled": false
+        },
+        {
+          "start": "14:00",
+          "end": "18:00",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "weekday": "ven",
+      "slots": [
+        {
+          "start": "9:00",
+          "end": "13:00",
+          "disabled": false
+        },
+        {
+          "start": "14:00",
+          "end": "18:00",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "weekday": "sab",
+      "slots": [
+        {
+          "start": "9:00",
+          "end": "13:00",
+          "disabled": true
+        },
+        {
+          "start": "14:00",
+          "end": "18:00",
+          "disabled": true
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "weekday": "dom",
+      "slots": [
+        {
+          "start": "9:00",
+          "end": "13:00",
+          "disabled": true
+        },
+        {
+          "start": "14:00",
+          "end": "18:00",
+          "disabled": true
+        }
+      ]
+    }
+  ]
+}
