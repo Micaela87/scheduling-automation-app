@@ -5,6 +5,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { routes } from '../routes';
 import { GoogleCalendarService } from './services/google-calendar.service';
+import { WeekSlotsService } from './services/week-slots.service';
 
 
 
@@ -14,7 +15,7 @@ import { GoogleCalendarService } from './services/google-calendar.service';
     CommonModule,
     RouterModule.forChild(routes)
   ],
-  providers: [GoogleCalendarService],
+  providers: [GoogleCalendarService, WeekSlotsService],
   exports: [HeaderComponent, FooterComponent]
 })
 export class SharedModule { }

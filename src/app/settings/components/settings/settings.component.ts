@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { WeekSlotsService } from 'src/app/shared/services/week-slots.service';
+import { WeekDaySlot } from 'src/app/types/types';
 
 @Component({
   selector: 'app-settings',
@@ -7,11 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SettingsComponent implements OnInit {
 
-  weekDays: string[] = ['lun', 'mar', 'mer', 'gio', 'ven', 'sab', 'dom'];
+  weekDays: Array<WeekDaySlot> | undefined = [];
 
-  constructor() { }
+  constructor(private weekSlots: WeekSlotsService) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    this.weekDays = await this.weekSlots.getSlots();
   }
 
 }
