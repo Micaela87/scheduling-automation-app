@@ -1,0 +1,26 @@
+.modal {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px;
+    border: 1px solid #bdbdbd;
+    border-radius: 5px;
+    background: #fffffff7;
+
+    img {
+        width: 100px;
+    }
+
+    h3 {
+        margin-top: 50px;
+        text-align: center;
+    }
+
+    h4 {
+        margin-top: 20px;
+        text-align: center;
+    }
+}
