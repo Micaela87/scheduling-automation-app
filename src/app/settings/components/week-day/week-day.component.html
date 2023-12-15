@@ -5,25 +5,35 @@
         </div>
         <div class="img-container" (click)="editSlot = !editSlot">
             <img src="../../../../assets/icons/edit.png" alt="edit" *ngIf="!editSlot">
-            <img src="../../../../assets/icons/checked.png" alt="save" *ngIf="editSlot">
+            <div class="flex-container" style="padding: 0">
+                <img src="../../../../assets/icons/checked.png" alt="save" *ngIf="editSlot" (click)="saveChanges($event)" style="width: 18px">
+                <img src="../../../../assets/icons/plus.png" alt="add" *ngIf="editSlot" (click)="addSlot($event)">
+            </div>
         </div>
     </div>
     <ng-container *ngIf="!editSlot; else editMode">
         <div class="flex-container" *ngFor="let slot of slots">
-            <div>{{ slot.start }} - {{ slot.end }}</div>
+            <div>{{ slot.start }}:00 - {{ slot.end }}:00</div>
             <div class="toggle" [style.background-color]="slot.disabled ? '#bdbdbd' : '#1a73e8cf'"><div class="circle" [style]="slot.disabled ? 'left: 2px' : 'right: 2px'" (click)="toggleAvailability(slot)"></div></div>
         </div>
     </ng-container>
     <ng-template #editMode>
-        <div class="flex-container">
-            <label for="">Start</label>
-            <select [(ngModel)]="defaultStart">
-                <option *ngFor="let hour of hours, index as i" [value]="i">{{ i }}:00</option>
-            </select>
-            <label for="">End</label>
-            <select [(ngModel)]="defaultEnd">
-                <option *ngFor="let hour of hours, index as i" [value]="i">{{ i }}:00</option>
-            </select>
+        <div class="flex-container" *ngFor="let slot of slots">
+            <div>
+                <label for="">dalle</label>
+                <select [(ngModel)]="slot.start">
+                    <option *ngFor="let hour of hours, index as i" [value]="i">{{ i }}:00</option>
+                </select>
+            </div>
+            <div>
+                <label for="">alle</label>
+                <select [(ngModel)]="slot.end">
+                    <option *ngFor="let hour of hours, index as i" [value]="i">{{ i }}:00</option>
+                </select>
+            </div>
+            <div class="delete-icon" (click)="deleteSlot(slot)">
+                <img src="../../../../assets/icons/trash-bin.png" alt="">
+            </div>
         </div>
     </ng-template>
 </div>
