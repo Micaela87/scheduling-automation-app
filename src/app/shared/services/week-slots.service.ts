@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { WeekDaySlot } from 'src/app/types/types';
+import { NotificationService } from './notification.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WeekSlotsService {
 
-  constructor() { }
+  constructor(private notificationService: NotificationService) { }
 
   async getSlots(): Promise<Array<WeekDaySlot> | undefined> {
 
@@ -22,6 +23,7 @@ export class WeekSlotsService {
 
     } catch(err) {
       console.error(err);
+      this.notificationService.showNotificationModal("error");
     }
 
     return result;
@@ -49,6 +51,7 @@ export class WeekSlotsService {
 
     } catch(err) {
       console.error(err);
+      this.notificationService.showNotificationModal("error");
     }
 
     return result;

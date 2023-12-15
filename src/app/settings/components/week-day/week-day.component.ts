@@ -41,12 +41,16 @@ export class WeekDayComponent implements OnInit {
     }
 
     this.slot.slots = this.slots;
-    await this.weekSlotsService.saveSlot(this.slot.id, this.slot);
-    this.notificationService.showNotificationModal("success");
-    const timeOut = setTimeout(() => {
-      this.notificationService.showNotificationModal("");
-      this.editSlot = !this.editSlot;
-    }, 3000);
+    const result = await this.weekSlotsService.saveSlot(this.slot.id, this.slot);
+
+    if (result) {
+      this.notificationService.showNotificationModal("success");
+      const timeOut = setTimeout(() => {
+        this.notificationService.showNotificationModal("");
+        this.editSlot = !this.editSlot;
+      }, 3000);
+    }
+    
     
   }
 
