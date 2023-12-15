@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { GoogleCalendarService } from './shared/services/google-calendar.service';
-import { map } from 'rxjs';
 
 @Component({
   selector: 'main-root',
@@ -13,6 +11,5 @@ export class MainComponent {
   loggedIn: boolean = false;
 
   constructor() {}
-
   
 }
