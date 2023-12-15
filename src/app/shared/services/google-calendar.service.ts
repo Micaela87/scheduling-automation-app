@@ -21,7 +21,7 @@ export function initWithDependencyFactory(googleCalendarService: GoogleCalendarS
             console.log(err);
           }
         });
-        console.log('im here');
+
         googleCalendarService.gisLoaded();
       });
   };
