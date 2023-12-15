@@ -6,16 +6,18 @@ import { RouterModule } from '@angular/router';
 import { routes } from '../routes';
 import { GoogleCalendarService } from './services/google-calendar.service';
 import { WeekSlotsService } from './services/week-slots.service';
+import { ModalComponent } from './components/modal/modal.component';
+import { NotificationService } from './services/notification.service';
 
 
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent],
+  declarations: [HeaderComponent, FooterComponent, ModalComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes)
   ],
-  providers: [GoogleCalendarService, WeekSlotsService],
-  exports: [HeaderComponent, FooterComponent]
+  providers: [GoogleCalendarService, WeekSlotsService, NotificationService],
+  exports: [HeaderComponent, FooterComponent, ModalComponent]
 })
 export class SharedModule { }
