@@ -53,4 +53,5 @@ export class WeekSlotsService {
 
     return result;
   }
+
 }
